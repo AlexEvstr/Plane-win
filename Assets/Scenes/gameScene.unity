@@ -248,6 +248,7 @@ GameObject:
   m_Component:
   - component: {fileID: 976633790}
   - component: {fileID: 976633791}
+  - component: {fileID: 976633792}
   m_Layer: 0
   m_Name: background
   m_TagString: Untagged
@@ -317,6 +318,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 12.961687, y: 23.009832}
   m_EdgeRadius: 0
+--- !u!114 &976633792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976633789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 842b55aac3b3a4d34b9a5d9d1c7eb42c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1504716238
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,6 +517,8 @@ GameObject:
   - component: {fileID: 1746366758}
   - component: {fileID: 1746366757}
   - component: {fileID: 1746366759}
+  - component: {fileID: 1746366760}
+  - component: {fileID: 1746366761}
   m_Layer: 0
   m_Name: plane_0
   m_TagString: Untagged
@@ -551,7 +566,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: c61fbcda825d643d8b8d5af0092278aa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -572,7 +587,7 @@ Transform:
   m_GameObject: {fileID: 1746366756}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -3.953, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -613,6 +628,33 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.436
+--- !u!114 &1746366760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746366756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28d2207382de943e2836ac30c7d397ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1746366761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746366756}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9e06280060a1418a8ce546870c56776, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smoothTime: 0.3
+  rotationSmoothTime: 0.1
+  maxRotationAngle: 45
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

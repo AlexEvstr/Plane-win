@@ -1,18 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementBack : MonoBehaviour
+public class BackgroundScroller : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private float scrollSpeed = 1.0f;
+    private Vector2 initialPosition;
+    private float backgroundHeight;
+
+    private void Awake()
     {
-        
+        initialPosition = transform.position;
+        backgroundHeight = GetComponent<BoxCollider2D>().size.y / 2;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        ScrollBackground();
+    }
+
+    private void ScrollBackground()
+    {
+        transform.Translate(Vector2.down * scrollSpeed * Time.deltaTime);
+        if (transform.position.y < (initialPosition.y - backgroundHeight))
+        {
+            ResetBackgroundPosition();
+        }
+    }
+
+    private void ResetBackgroundPosition()
+    {
+        transform.position = initialPosition;
     }
 }
