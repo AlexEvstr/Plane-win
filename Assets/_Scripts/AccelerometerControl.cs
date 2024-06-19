@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class AccelerometerControl : MonoBehaviour
 {
-    private float speed = 50.0f;
+    private float speed = 100.0f;
     private float smoothTime = 0.1f; // Время сглаживания для перемещения
     private float rotationSmoothTime = 0.1f; // Время сглаживания для вращения
     private float maxRotationAngle = 45.0f; // Максимальный угол поворота
