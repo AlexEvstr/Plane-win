@@ -8,12 +8,12 @@ public class PlaneTriggerDetector : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            Debug.Log(collision.gameObject.name);
+            HpBar.CurrentHp -= 0.2f;
             Destroy(collision.gameObject);
         }
         else if (collision.gameObject.tag == "UFO")
         {
-            Debug.Log(collision.gameObject.name);
+            HpBar.CurrentHp -= 0.35f;
             Destroy(collision.gameObject);
         }
         else if (collision.gameObject.tag == "Coin")
@@ -29,7 +29,7 @@ public class PlaneTriggerDetector : MonoBehaviour
         }
         else if (collision.gameObject.tag == "scoreObject")
         {
-            Debug.Log(collision.gameObject.name);
+            HpBar.CurrentHp += float.Parse(collision.gameObject.name.Replace("(Clone)", "").Trim())/100;
             Destroy(collision.gameObject);
         }
     }
