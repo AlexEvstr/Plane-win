@@ -12,7 +12,8 @@ public class CoinSpawner : MonoBehaviour
 
     private IEnumerator SpawnCoin()
     {
-        yield return new WaitForSeconds(Random.Range(10f, 15f));
+        //yield return new WaitForSeconds(Random.Range(10f, 15f));
+        yield return new WaitForSeconds(Random.Range(1f, 5f));
         while (true)
         {
             GameObject coin = Instantiate(_coinPrefab);

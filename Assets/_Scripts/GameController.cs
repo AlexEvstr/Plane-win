@@ -39,4 +39,9 @@ public class GameController : MonoBehaviour
     {
         SceneManager.LoadScene("menuScene");
     }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene("gameScene");
+    }
 }
