@@ -9,6 +9,7 @@ public class HpBar : MonoBehaviour
     [SerializeField] private TMP_Text _percents;
     [SerializeField] private GameObject _loseWindow; 
     [SerializeField] private GameObject _plane;
+    [SerializeField] private CloneManager _cloneManager;
 
     private float maxHp;
     public static float CurrentHp;
@@ -32,9 +33,10 @@ public class HpBar : MonoBehaviour
 
     private void Update()
     {
-        if (CurrentHp > 1)
+        if (CurrentHp >= 1)
         {
             CurrentHp = 1;
+            _cloneManager.CreateClone();
         }
         else if (CurrentHp < 0)
         {
