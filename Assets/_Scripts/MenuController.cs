@@ -9,6 +9,7 @@ public class MenuController : MonoBehaviour
     [SerializeField] private Image _touchBtn;
     [SerializeField] private Image _accelerometerBtn;
     [SerializeField] private GameObject _levelsWindow;
+    [SerializeField] private GameObject _statsWindow;
     private void Start()
     {
         Screen.orientation = ScreenOrientation.Portrait;
@@ -67,5 +68,17 @@ public class MenuController : MonoBehaviour
     public void ChooseAccelerometerControl()
     {
         PlayerPrefs.SetInt("control", 1);
+    }
+
+    public void OpenStatsWindow()
+    {
+        _menuWindow.SetActive(false);
+        _statsWindow.SetActive(true);
+    }
+
+    public void CloseStatsWindow()
+    {
+        _statsWindow.SetActive(false);
+        _menuWindow.SetActive(true);
     }
 }

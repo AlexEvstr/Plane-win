@@ -10,11 +10,15 @@ public class PlaneTriggerDetector : MonoBehaviour
         {
             HpBar.CurrentHp -= 0.2f;
             Destroy(collision.gameObject);
+            StatsGameController.EnemiesCount++;
+            PlayerPrefs.SetInt("enemiesCount", StatsGameController.EnemiesCount);
         }
         else if (collision.gameObject.tag == "UFO")
         {
             HpBar.CurrentHp -= 0.35f;
             Destroy(collision.gameObject);
+            StatsGameController.EnemiesCount++;
+            PlayerPrefs.SetInt("enemiesCount", StatsGameController.EnemiesCount);
         }
         else if (collision.gameObject.tag == "Coin")
         {
@@ -31,6 +35,8 @@ public class PlaneTriggerDetector : MonoBehaviour
         {
             HpBar.CurrentHp += float.Parse(collision.gameObject.name.Replace("(Clone)", "").Trim())/100;
             Destroy(collision.gameObject);
+            StatsGameController.BonusesCount++;
+            PlayerPrefs.SetInt("bonusesCount", StatsGameController.BonusesCount);
         }
     }
 
