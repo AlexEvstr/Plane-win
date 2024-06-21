@@ -8,6 +8,7 @@ public class MenuController : MonoBehaviour
     [SerializeField] private GameObject _settingsWindow;
     [SerializeField] private Image _touchBtn;
     [SerializeField] private Image _accelerometerBtn;
+    [SerializeField] private GameObject _levelsWindow;
     private void Start()
     {
         Screen.orientation = ScreenOrientation.Portrait;
@@ -36,7 +37,14 @@ public class MenuController : MonoBehaviour
 
     public void PlayButton()
     {
-        SceneManager.LoadScene("gameScene");
+        _menuWindow.SetActive(false);
+        _levelsWindow.SetActive(true);
+    }
+
+    public void CloseLevelsWindow()
+    {
+        _levelsWindow.SetActive(false);
+        _menuWindow.SetActive(true);
     }
 
     public void OpenSettingsButton()
