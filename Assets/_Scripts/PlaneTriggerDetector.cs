@@ -51,7 +51,7 @@ public class PlaneTriggerDetector : MonoBehaviour
         if (highestUnlockedLevel < LevelManager.levelIndex)
         {
             highestUnlockedLevel = LevelManager.levelIndex;
-            PlayerPrefs.SetInt("highestUnlockedLevel < LevelManager.levelIndex", highestUnlockedLevel);
+            PlayerPrefs.SetInt("HighestUnlockedLevel", highestUnlockedLevel);
         }
         Time.timeScale = 0;
     }

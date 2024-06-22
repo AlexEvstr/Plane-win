@@ -13,7 +13,7 @@ public class PlaneShop : MonoBehaviour
 
     void Start()
     {
-        coinCount = PlayerPrefs.GetInt("CoinCount", 0);
+        coinCount = PlayerPrefs.GetInt("coinBalance", 0);
         selectedAirplane = PlayerPrefs.GetInt("SelectedAirplane", -1);
 
         if (!IsAirplanePurchased(0))
@@ -60,7 +60,7 @@ public class PlaneShop : MonoBehaviour
         if (coinCount >= cost)
         {
             coinCount -= cost;
-            PlayerPrefs.SetInt("CoinCount", coinCount);
+            PlayerPrefs.SetInt("coinBalance", coinCount);
             PlayerPrefs.SetInt("AirplanePurchased_" + index, 1);
             PlayerPrefs.Save();
 

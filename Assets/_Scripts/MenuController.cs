@@ -10,6 +10,8 @@ public class MenuController : MonoBehaviour
     [SerializeField] private Image _accelerometerBtn;
     [SerializeField] private GameObject _levelsWindow;
     [SerializeField] private GameObject _statsWindow;
+    [SerializeField] private GameObject _privacyWindow;
+    [SerializeField] private GameObject _tutorialWindow;
     private void Start()
     {
         Screen.orientation = ScreenOrientation.Portrait;
@@ -79,6 +81,30 @@ public class MenuController : MonoBehaviour
     public void CloseStatsWindow()
     {
         _statsWindow.SetActive(false);
+        _menuWindow.SetActive(true);
+    }
+
+    public void OpenPrivacyWindow()
+    {
+        _menuWindow.SetActive(false);
+        _privacyWindow.SetActive(true);
+    }
+
+    public void ClosePrivacyWindow()
+    {
+        _privacyWindow.SetActive(false);
+        _menuWindow.SetActive(true);
+    }
+
+    public void OpenTutorialWindow()
+    {
+        _menuWindow.SetActive(false);
+        _tutorialWindow.SetActive(true);
+    }
+
+    public void CloseTutorialWindow()
+    {
+        _tutorialWindow.SetActive(false);
         _menuWindow.SetActive(true);
     }
 }
