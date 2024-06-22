@@ -10,9 +10,12 @@ public class PlaneShop : MonoBehaviour
 
     private int coinCount;
     private int selectedAirplane;
+    private AudioAndVibroMenu _audioAndVibroMenu;
+
 
     void Start()
     {
+        _audioAndVibroMenu = GetComponent<AudioAndVibroMenu>();
         coinCount = PlayerPrefs.GetInt("coinBalance", 0);
         selectedAirplane = PlayerPrefs.GetInt("SelectedAirplane", -1);
 
@@ -46,10 +49,12 @@ public class PlaneShop : MonoBehaviour
         if (IsAirplanePurchased(index))
         {
             SelectAirplane(index);
+            _audioAndVibroMenu.PlayClickAudio();
         }
         else
         {
             BuyAirplane(index);
+            _audioAndVibroMenu.PlayPurchaseAudio();
         }
     }
 

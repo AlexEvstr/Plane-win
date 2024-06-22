@@ -10,12 +10,14 @@ public class HpBar : MonoBehaviour
     [SerializeField] private GameObject _loseWindow; 
     [SerializeField] private GameObject _plane;
     [SerializeField] private CloneManager _cloneManager;
+    private AudioAndVibroGame audioAndVibroGame;
 
     private float maxHp;
     public static float CurrentHp;
 
     private void Start()
     {
+        audioAndVibroGame = GetComponent<AudioAndVibroGame>();
         maxHp = 1.0f;
         CurrentHp = 1.0f;
         StartCoroutine(HpDecrease());
@@ -38,7 +40,7 @@ public class HpBar : MonoBehaviour
             CurrentHp = 1;
             _cloneManager.CreateClone();
         }
-        else if (CurrentHp < 0)
+        else if (CurrentHp <= 0)
         {
             CurrentHp = 0;
             StatsGameController.LosesCount++;
@@ -52,6 +54,7 @@ public class HpBar : MonoBehaviour
     {
         _plane.GetComponent<CircleCollider2D>().enabled = false;
         yield return new WaitForSeconds(1.0f);
+        audioAndVibroGame.PlayLoseSound();
         _loseWindow.SetActive(true);
         Time.timeScale = 0;
     }

@@ -4,6 +4,7 @@ public class CloneManager : MonoBehaviour
 {
     public GameObject original;  // Ссылка на оригинальный объект самолета
     private GameObject clone;    // Ссылка на клон объекта
+    [SerializeField] private AudioAndVibroGame _audioAndVibroGame;
 
     void Start()
     {
@@ -18,6 +19,7 @@ public class CloneManager : MonoBehaviour
     {
         if (clone == null)
         {
+            _audioAndVibroGame.PlayPercent100AudioClip();
             clone = Instantiate(original, original.transform.position, original.transform.rotation);
             // Удалить скрипты управления с клона
             if (clone.GetComponent<AccelerometerControl>() != null)

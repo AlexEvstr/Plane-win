@@ -4,10 +4,12 @@ using UnityEngine;
 public class PlaneTriggerDetector : MonoBehaviour
 {
     [SerializeField] private GameObject _winWindow;
+    [SerializeField] private AudioAndVibroGame audioAndVibroGame;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Bullet")
         {
+            audioAndVibroGame.PlayEnemyAudioClip();
             HpBar.CurrentHp -= 0.2f;
             Destroy(collision.gameObject);
             StatsGameController.EnemiesCount++;
@@ -15,6 +17,7 @@ public class PlaneTriggerDetector : MonoBehaviour
         }
         else if (collision.gameObject.tag == "UFO")
         {
+            audioAndVibroGame.PlayEnemyAudioClip();
             HpBar.CurrentHp -= 0.35f;
             Destroy(collision.gameObject);
             StatsGameController.EnemiesCount++;
@@ -23,6 +26,7 @@ public class PlaneTriggerDetector : MonoBehaviour
         else if (collision.gameObject.tag == "Coin")
         {
             Destroy(collision.gameObject);
+            audioAndVibroGame.PlayCoinAudio();
             MoneyCounter.CoinsLevel++;
             MoneyCounter.CoinBalance++;
             PlayerPrefs.SetInt("coinBalance", MoneyCounter.CoinBalance);
@@ -33,6 +37,7 @@ public class PlaneTriggerDetector : MonoBehaviour
         }
         else if (collision.gameObject.tag == "scoreObject")
         {
+            audioAndVibroGame.PlayBonusAudio();
             HpBar.CurrentHp += float.Parse(collision.gameObject.name.Replace("(Clone)", "").Trim())/100;
             Destroy(collision.gameObject);
             StatsGameController.BonusesCount++;
@@ -44,6 +49,7 @@ public class PlaneTriggerDetector : MonoBehaviour
     {
         GetComponent<CircleCollider2D>().enabled = false;
         yield return new WaitForSeconds(1.0f);
+        audioAndVibroGame.PlayWinSound();
         _winWindow.SetActive(true);
         LevelManager.levelIndex++;
         PlayerPrefs.SetInt("LevelIndex", LevelManager.levelIndex);
