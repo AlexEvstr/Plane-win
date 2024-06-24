@@ -25,6 +25,7 @@ public class GameController : MonoBehaviour
         {
             _touchControl.enabled = true;
         }
+        Screen.orientation = ScreenOrientation.Portrait;
     }
 
     public void PauseGameButton()

@@ -14,8 +14,8 @@ public class MenuController : MonoBehaviour
     [SerializeField] private GameObject _tutorialWindow;
     private void Start()
     {
-        Screen.orientation = ScreenOrientation.Portrait;
         Time.timeScale = 1;
+        Screen.orientation = ScreenOrientation.Portrait;
     }
 
     private void Update()
