@@ -43,8 +43,6 @@ public class HpBar : MonoBehaviour
         else if (CurrentHp <= 0)
         {
             CurrentHp = 0;
-            StatsGameController.LosesCount++;
-            PlayerPrefs.SetInt("losesCount", StatsGameController.LosesCount);
         }
         _currentHpImage.fillAmount = CurrentHp / maxHp;
         _percents.text = (100 * CurrentHp).ToString("f0") + "%";
@@ -52,6 +50,8 @@ public class HpBar : MonoBehaviour
 
     private IEnumerator OpenGameLose()
     {
+        StatsGameController.LosesCount++;
+        PlayerPrefs.SetInt("losesCount", StatsGameController.LosesCount);
         _plane.GetComponent<CircleCollider2D>().enabled = false;
         yield return new WaitForSeconds(1.0f);
         audioAndVibroGame.PlayLoseSound();
